@@ -3,14 +3,18 @@ import subprocess
 import threading
 import sys
 
+
 CMD = 'ffmpeg -y -i {input} -b:v {bit_rate}M -r {fps} -s hd{res} {output}'
-FFMPEG = shutil.which('ffmpeg')
-if not FFMPEG:
-    raise FileNotFoundError('FFMPEG not found')
+
+
+def check_ffmpeg():
+    FFMPEG = shutil.which('ffmpeg')
+    if not FFMPEG:
+        raise FileNotFoundError('FFMPEG not found')
 
 
 def test_func():
-    main()
+    pass
 
 
 def ffmpeg(name, res):
@@ -29,6 +33,7 @@ def reformat(name, res, output_name):
 
 
 def main():
+    check_ffmpeg()
     if len(sys.argv) != 2:
         raise FileNotFoundError('You did not enter the file name')
     input_name = sys.argv[1]
