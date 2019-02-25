@@ -1,6 +1,7 @@
 # FFMPEG - ex2
 
 [![Build Status](https://travis-ci.com/ec500-software-engineering/exercise-2-ffmpeg-8128.svg?branch=master)](https://travis-ci.com/ec500-software-engineering/exercise-2-ffmpeg-8128)
+
 Prerequisites can be installed by requirements.txt
 
 ## Quick run  
