@@ -14,7 +14,7 @@ def check_ffmpeg():
 
 
 def test_func():
-    pass
+    main("video.mp4")
 
 
 def ffmpeg(name, res):
@@ -32,11 +32,14 @@ def reformat(name, res, output_name):
     return cmd
 
 
-def main():
+def main(args):
     check_ffmpeg()
-    if len(sys.argv) != 2:
+    if args:
+        input_name = args
+    elif len(sys.argv) != 2:
         raise FileNotFoundError('You did not enter the file name')
-    input_name = sys.argv[1]
+    else:
+        input_name = sys.argv[1]
     ffmpeg480 = threading.Thread(target=ffmpeg, args=(input_name, 480))
     ffmpeg720 = threading.Thread(target=ffmpeg, args=(input_name, 720))
     ffmpeg480.start()
@@ -48,4 +51,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main("video.mp4")
